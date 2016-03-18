@@ -9,7 +9,7 @@
 @isTest
 private class RestAccountManagerTest {
 
-    private static User testAdminUser = CommonTester.getTestUser();
+    private static User testAdminUser = new User(Id = UserInfo.getUserId());
  
     /**
      * Apex REST - Get Account
@@ -40,9 +40,12 @@ private class RestAccountManagerTest {
      */
     static testMethod void getAccountTest2() {    
         System.runAs(testAdminUser) {
-        
-            Account account1 = CommonTester.createAccount(true);
-            Account account2 = CommonTester.createAccount(true);
+
+            Account account1 = new Account(Name = 'sforce1');
+            insert account1;
+
+            Account account2 = new Account(Name = 'sforce2');
+            insert account2;
             
             RestRequest req = new RestRequest();
             RestResponse res = new RestResponse();
