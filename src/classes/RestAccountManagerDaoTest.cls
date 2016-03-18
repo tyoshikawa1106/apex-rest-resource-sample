@@ -10,7 +10,7 @@
 private class RestAccountManagerDaoTest {
     
     private static RestAccountManagerDao dao = new RestAccountManagerDao();
-    private static User testAdminUser = CommonTester.getTestUser();
+    private static User testAdminUser = new User(Id = UserInfo.getUserId());
  
     /**
      * Get Accounts
@@ -34,7 +34,8 @@ private class RestAccountManagerDaoTest {
     static testMethod void getAccountsTest2() {    
         System.runAs(testAdminUser) {
             
-            Account account = CommonTester.createAccount(true);
+            Account account = new Account(Name = 'sforce');
+            insert account;
             
             Test.startTest();
             
