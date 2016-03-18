@@ -10,7 +10,7 @@
 private class RestAccountManagerHelperTest {
 
     private static RestAccountManagerHelper helper = new RestAccountManagerHelper();
-    private static User testAdminUser = CommonTester.getTestUser();
+    private static User testAdminUser = new User(Id = UserInfo.getUserId());
  
     /**
      * Check Parameters
